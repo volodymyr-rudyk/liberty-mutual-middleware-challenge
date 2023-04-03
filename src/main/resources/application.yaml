@@ -1,0 +1,55 @@
+#debug: true
+server:
+  compression:
+    enabled: true
+    min-response-size: 1KB
+    mime-types:
+      - applications/json
+  http2:
+    enabled: true
+  #  servlet:
+  #    context-path: /api
+  port: 8888
+
+springdoc:
+
+  api-docs:
+    groups:
+      enabled: true
+    version: OPENAPI_3_0
+    #    path: api-spec
+    enabled: true
+  packages-to-scan:
+    - com.middleware.libertymutualmiddlewarechallenge
+  swagger-ui:
+    enabled: true
+    path: open-api-ui
+
+    version: 13.5.3
+
+
+
+spring:
+
+  application:
+    name: liberty-middleware
+
+  datasource:
+    #    url: jdbc:h2:mem:testdb
+    url: jdbc:h2:file:/data/demo
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+
+  h2:
+    console:
+      enabled: true
+      settings:
+        trace: true
+        web-admin-password: password
+  mvc:
+    problemdetails:
+      enabled: true
+
