@@ -1,9 +1,8 @@
 package com.middleware.libertymutualmiddlewarechallenge.rest;
 
 import com.middleware.libertymutualmiddlewarechallenge.api.PokerSessionApi;
-import com.middleware.libertymutualmiddlewarechallenge.rest.dto.request.NewPokerSessionRequestDto;
-import com.middleware.libertymutualmiddlewarechallenge.rest.dto.response.NewPokerSessionResponseDto;
-import org.junit.jupiter.api.Assertions;
+import com.middleware.libertymutualmiddlewarechallenge.rest.dto.in.pokersession.NewPokerSessionRequestDto;
+import com.middleware.libertymutualmiddlewarechallenge.rest.dto.out.pokersession.NewPokerSessionResponseDto;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +15,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PokerSessionControllerTest extends BaseTest {
+class PokerPokerSessionControllerTestEntity extends BaseTest {
 
     @Autowired
     PokerSessionApi pokerSessionApi;

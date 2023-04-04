@@ -1,5 +1,6 @@
 package com.middleware.libertymutualmiddlewarechallenge.handler;
 
+import com.middleware.libertymutualmiddlewarechallenge.exception.AbstractRestApiException;
 import org.springframework.context.support.DefaultMessageSourceResolvable;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ProblemDetail;
@@ -26,4 +27,17 @@ public class ErrorHandlerAdvice {
         return problemDetail;
     }
 
+    @ExceptionHandler
+    ProblemDetail handle(IllegalArgumentException e) {
+        var problemDetail = ProblemDetail.forStatus(HttpStatusCode.valueOf(400));
+        problemDetail.setDetail(e.getMessage());
+        return problemDetail;
+    }
+
+    @ExceptionHandler
+    ProblemDetail handle(AbstractRestApiException e) {
+        var problemDetail = ProblemDetail.forStatus(HttpStatusCode.valueOf(e.getStatus()));
+        problemDetail.setDetail(e.getMessage());
+        return problemDetail;
+    }
 }

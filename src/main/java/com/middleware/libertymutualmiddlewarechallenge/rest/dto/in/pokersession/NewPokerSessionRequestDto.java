@@ -1,6 +1,5 @@
-package com.middleware.libertymutualmiddlewarechallenge.rest.dto.request;
+package com.middleware.libertymutualmiddlewarechallenge.rest.dto.in.pokersession;
 
-import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotEmpty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;

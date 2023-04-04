@@ -1,6 +1,6 @@
 package com.middleware.libertymutualmiddlewarechallenge.api;
 
-import com.middleware.libertymutualmiddlewarechallenge.rest.dto.request.NewPokerSessionRequestDto;
+import com.middleware.libertymutualmiddlewarechallenge.rest.dto.in.pokersession.NewPokerSessionRequestDto;
 import com.middleware.libertymutualmiddlewarechallenge.utils.JsonUtils;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
