@@ -8,13 +8,9 @@ import org.springframework.mock.web.MockHttpServletResponse;
 
 public abstract class AbstractApi {
 
-    protected boolean is2XX(int status) {
-        return status >= 200 && status <= 299;
-    }
-
     @SneakyThrows
     protected <T> ResponseEntity<T> handle(MockHttpServletResponse response, Class<T> clazz) {
-        return new ResponseEntity<T>(
+        return new ResponseEntity<>(
                 JsonUtils.fromJson(response.getContentAsString(), clazz),
                 HttpStatusCode.valueOf(response.getStatus()));
     }

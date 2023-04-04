@@ -8,6 +8,8 @@ import org.springframework.validation.BindException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
+import java.util.Objects;
+
 @RestControllerAdvice
 public class ErrorHandlerAdvice {
 
@@ -22,7 +24,10 @@ public class ErrorHandlerAdvice {
     ProblemDetail handle(BindException e) {
         var problemDetail = ProblemDetail.forStatus(HttpStatusCode.valueOf(400));
         problemDetail.setDetail(e.getMessage());
-        var errors = e.getAllErrors().stream().map(DefaultMessageSourceResolvable::getDefaultMessage).sorted().toList().toString();
+        var errors = e.getAllErrors().stream()
+                .map(DefaultMessageSourceResolvable::getDefaultMessage)
+                .filter(Objects::nonNull)
+                .sorted().toList().toString();
         problemDetail.setDetail(errors);
         return problemDetail;
     }

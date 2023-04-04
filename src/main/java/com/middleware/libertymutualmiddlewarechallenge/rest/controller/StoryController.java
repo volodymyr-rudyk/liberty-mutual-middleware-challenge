@@ -12,7 +12,6 @@ import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.DeleteExchange;
 
 @Tag(name = "Story management", description = "Story management API")
 @RequiredArgsConstructor

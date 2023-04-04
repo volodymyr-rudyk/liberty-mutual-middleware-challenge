@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
-import java.util.HashSet;
 import java.util.Set;
 
 
@@ -17,19 +16,19 @@ public class StoryEntity {
     private Integer id;
 
     @Basic
-    @Column(name = "title", nullable = false, length = 255)
+    @Column(name = "title", nullable = false)
     private String title;
 
     @Basic
-    @Column(name = "description", nullable = false, length = 255)
+    @Column(name = "description", nullable = false)
     private String description;
     @Basic
 
-    @Column(name = "project", nullable = false, length = 255)
+    @Column(name = "project", nullable = false)
     private String project;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "vote_status", nullable = false, length = 255)
+    @Column(name = "vote_status", nullable = false)
     private VoteStatus voteStatus;
 
     @OneToMany(mappedBy = "story", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)

@@ -15,7 +15,7 @@ import java.util.UUID;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PokerPokerSessionControllerTestEntity extends BaseTest {
+class PokerPokerSessionControllerTest extends BaseTest {
 
     @Autowired
     PokerSessionApi pokerSessionApi;
@@ -26,6 +26,7 @@ class PokerPokerSessionControllerTestEntity extends BaseTest {
         var request = new NewPokerSessionRequestDto("", "");
         var response = pokerSessionApi.createNewPokerSession(request, ProblemDetail.class);
         assertAll(
+                () -> assertNotNull(response.getBody(), "Response body should not be null"),
                 () -> assertEquals(response.getStatusCode(), HttpStatus.BAD_REQUEST),
                 () -> assertEquals(response.getBody().getInstance(), URI.create("/sessions")),
                 () -> assertEquals(response.getBody().getDetail(), List.of("deskType is empty", "title is empty").toString())

@@ -1,6 +1,7 @@
 package com.middleware.libertymutualmiddlewarechallenge.jpa.model;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

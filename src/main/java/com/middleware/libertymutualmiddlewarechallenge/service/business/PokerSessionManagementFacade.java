@@ -46,7 +46,7 @@ class PokerSessionManagementFacade implements PokerSessionOperations, StoryOpera
     public PokerSessionDetailsResponseDto createPokerSession(NewPokerSessionRequestDto request) {
         log.debug("Create new poker session {}", request);
         PokerSessionEntity entity = new PokerSessionEntity();
-        // NOTE: Two sql queries generated here, due to the fact that we are using a generated id
+        // NOTE: Two sql queries generated here, due to the fact that we are using generated id
         entity.setId(GeneratorUtils.generateRandomString());
         entity.setTitle(request.getTitle());
         entity.setDeskType(request.getDeskType());
@@ -96,6 +96,8 @@ class PokerSessionManagementFacade implements PokerSessionOperations, StoryOpera
     @Transactional
     @Override
     public void removePokerSessionDetails(String sessionId, ConfirmRequestDto request) {
+        Assert.state(request.confirm(), "Confirm is required");
+        
         log.info("Remove poker session {}", sessionId);
         int stories = storyRepository.deleteAllByPokerSessionId(sessionId);
         log.info("Deleted {} stories by session id {}", stories, sessionId);
